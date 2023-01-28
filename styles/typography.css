@@ -1,0 +1,87 @@
+.h1-caption-bold {
+  @apply font-bold text-[32px] leading-[40px];
+}
+
+.h2-caption-bold {
+  @apply font-bold text-[24px] leading-[32px];
+}
+
+.h2-caption-regular {
+  @apply font-normal text-[24px] leading-[32px];
+}
+
+.h3-caption-bold {
+  @apply font-bold text-[20px] leading-[32px];
+}
+
+.h3-caption-semibold {
+  @apply font-medium text-[20px] leading-[32px];
+}
+
+.h4-caption-bold {
+  @apply font-bold text-[16px] leading-[24px];
+}
+
+.h4-caption-semibold {
+  @apply font-medium text-[16px] leading-[24px];
+}
+
+.h5-caption-bold {
+  @apply font-bold text-[14px] leading-[24px];
+}
+
+.h5-caption-semibold {
+  @apply font-medium text-[14px] leading-[24px];
+}
+
+.h6-caption-semibold {
+  @apply font-medium text-[12px] leading-[16px];
+}
+
+.h6-caption-bold-capitalized {
+  @apply font-bold text-[12px] leading-[16px] capitalize;
+}
+
+.h6-caption-bold-allcaps {
+  @apply font-bold text-[12px] leading-[16px] uppercase;
+}
+
+.body-text-large {
+  @apply font-normal text-[20px] leading-[32px];
+}
+
+.body-text-normal {
+  @apply font-normal text-[16px] leading-[24px];
+}
+
+.body-text-small {
+  @apply font-normal text-[14px] leading-[24px];
+}
+
+.caption-1-lh-16 {
+  @apply font-normal text-[12px] leading-[16px];
+}
+
+.caption-1-lh-18 {
+  @apply font-normal text-[12px] leading-[18px];
+}
+
+.caption-1-lh-20 {
+  @apply font-normal text-[12px] leading-[20px];
+}
+
+.caption-2-semibold {
+  @apply font-medium text-[11px] leading-[16px];
+}
+
+.caption-2-regular {
+  @apply font-normal text-[11px] leading-[16px];
+}
+
+.caption-2-bold-capitalized {
+  @apply font-bold text-[11px] leading-[16px] capitalize;
+}
+
+.caption-2-bold-allcaps {
+  @apply font-bold text-[11px] leading-[16px] uppercase;
+}

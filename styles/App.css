@@ -1,0 +1,95 @@
+@import url("../assets/fonts/GothamPro/stylesheet.css");
+@import url(./colors.css);
+@import url(./typography.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-container {
+  @apply max-w-[1440px] p-2
+  laptop:mx-2 laptop:p-6 laptop:rounded-2xl laptop:shadow-md 
+  desktop:mx-auto desktop:p-6 desktop:rounded-2xl desktop:shadow-md 
+  tablet:p-4;
+}
+
+:root {
+  @apply bg-slate-100  text-gc-text-dark-gray;
+}
+
+.btn-text {
+  @apply flex items-center p-1
+  hover:text-gc-primary
+  active:text-gc-primary-hover
+  transition-colors
+  duration-300;
+}
+
+.active {
+  @apply h-8 border border-gc-primary rounded-lg text-gc-primary;
+}
+
+.logo-hover {
+  @apply hover:scale-110
+  transition-transform;
+}
+
+/* .mask {
+  -webkit-mask-image: url(../public/img/pictures/food_mask.png);
+  mask-image: url(../public/img/pictures/food_mask.png);
+  mask-position: center;
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+} */
+
+.body {
+  margin: 0;
+  background: linear-gradient(to bottom, red 50px, green 50px);
+  padding-top: 50px;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tab {
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+}
+.tab:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -2;
+  transform: skew(-40deg);
+}
+
+.menu:before {
+  content: "";
+  display: block;
+  background: red;
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+}
+.menu:after {
+  background: red;
+  border-bottom: 1px solid #fff;
+}
+
+.title:after {
+  border-left: 1px solid;
+  border-top: 1px solid;
+}

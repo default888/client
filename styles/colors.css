@@ -1,0 +1,16 @@
+:root {
+  --gc-primary: #fd7222;
+  --gc-primary-hover: #ff843d;
+  --gc-secondary: #503e9d;
+  --gc-tertiary: #facd5d;
+  --gc-sucess: #419d3e;
+  --gc-error: #ff0000;
+  --gc-dark-balck: #000000;
+  --gc-dark-gray: #2d2d2d;
+  --gc-gray: #a3a3a4;
+  --gc-gray-light: #f7f7f7;
+  --gc-white: #ffffff;
+  --gc-text-dark-blue: #182135;
+  --gc-text-dark-gray: #626264;
+  --gc-text-light: #d9d9d9;
+}
