@@ -6,90 +6,69 @@
 @tailwind utilities;
 
 .my-container {
+  @apply max-w-[1440px] 
+        laptop:mx-2  laptop:rounded-2xl laptop:shadow-md 
+        desktop:mx-auto  desktop:rounded-2xl desktop:shadow-md;
+}
+
+/* .my-container {
   @apply max-w-[1440px] p-2
   laptop:mx-2 laptop:p-6 laptop:rounded-2xl laptop:shadow-md 
   desktop:mx-auto desktop:p-6 desktop:rounded-2xl desktop:shadow-md 
   tablet:p-4;
+} */
+* {
+  @apply focus:outline-gc-primary;
 }
 
 :root {
-  @apply bg-slate-100  text-gc-text-dark-gray;
+  @apply bg-slate-100  text-gc-text-dark-gray focus:bg-gc-primary;
 }
 
 .btn-text {
   @apply flex items-center p-1
-  hover:text-gc-primary
-  active:text-gc-primary-hover
-  transition-colors
-  duration-300;
+        hover:text-gc-primary
+        active:text-gc-primary-hover
+        transition-colors
+        duration-300;
 }
 
 .active {
-  @apply h-8 border border-gc-primary rounded-lg text-gc-primary;
+  @apply h-8 border border-gc-primary rounded-lg text-gc-primary px-3 pointer-events-none;
 }
 
 .logo-hover {
   @apply hover:scale-110
-  transition-transform;
+        transition-transform;
 }
 
-/* .mask {
-  -webkit-mask-image: url(../public/img/pictures/food_mask.png);
-  mask-image: url(../public/img/pictures/food_mask.png);
-  mask-position: center;
-  mask-size: 100%;
-  mask-repeat: no-repeat;
-} */
-
-.body {
-  margin: 0;
-  background: linear-gradient(to bottom, red 50px, green 50px);
-  padding-top: 50px;
-  overflow: hidden;
-  height: 100vh;
+.btn-mui {
+  @apply bg-opacity-10 min-w-[110px] h-[36px] px-4 py-[6px] rounded-[6px]  relative
+        hover:bg-opacity-20 
+        transition-colors 
+        duration-100;
 }
 
-.a {
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  color: #fff;
+.btn-mui-container {
+  @apply block absolute top-0 bottom-0 left-0 right-0 w-full h-full overflow-hidden;
 }
 
-.tab {
-  width: 50%;
-  float: left;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-}
-.tab:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  z-index: -2;
-  transform: skew(-40deg);
+.btn-mui-text {
+  @apply text-sm;
 }
 
-.menu:before {
-  content: "";
-  display: block;
-  background: red;
-  position: absolute;
-  width: 50px;
-  height: 100%;
-  top: 0;
-  z-index: -1;
-}
-.menu:after {
-  background: red;
-  border-bottom: 1px solid #fff;
+.btn-mui-circle {
+  @apply block absolute rounded-full bg-white bg-opacity-40 pointer-events-none w-14 h-14;
 }
 
-.title:after {
-  border-left: 1px solid;
-  border-top: 1px solid;
+.btn-list {
+  @apply mb-4 text-gc-text-dark-gray cursor-pointer transition-colors hover:text-gc-primary;
+}
+
+.btn-list:hover .btn-arrow {
+  @apply rotate-[180deg] transition-transform duration-300;
+}
+
+.btn-arrow {
+  @apply transition-all duration-300;
 }

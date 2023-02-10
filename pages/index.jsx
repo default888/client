@@ -2,11 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import RestaurantButtons from "@/components/RestaurantButtons";
 import Logo from "@/components/Logo";
 
-const index = () => {
+const index = ({ restaurants }) => {
   return (
-    <div className="my-container bg-gc-white flex flex-col flex-grow desktop:my-2 laptop:my-2 tablet:my-0 mobile:my-0">
+    <div className="my-container bg-gc-white flex flex-col flex-grow p-6 desktop:my-2 laptop:my-2 tablet:my-0 mobile:my-0">
       <Header />
       {/* restaurant button */}
       <div className="flex justify-center flex-grow ">
@@ -16,68 +17,7 @@ const index = () => {
             <div className="h1-caption-bold font-medium mb-10 text-gc-primary">
               Выберите ресторан
             </div>
-            <div className=" flex gap-5 flex-wrap justify-center">
-              <Link
-                className="flex items-center logo-hover shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="suncity.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="adachi.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="redcup.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="beerstown.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="suncity_makeevka.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="catering.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="choco.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="kim-bao.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="catering.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="majorele.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="cake.svg" />
-              </Link>
-              <Link
-                className="flex items-center logo-hover  shadow-md rounded-lg"
-                href="/restaurant">
-                <Logo logoName="chees_and_meat.svg" />
-              </Link>
-            </div>
+            <RestaurantButtons btn={restaurants} />
           </div>
           {/* picture */}
           <div className=" w-[50%] flex items-center justify-center">
@@ -143,11 +83,20 @@ const index = () => {
       <div className="mt-4 mb-10 rounded-xl flex items-center justify-center ">
         <img src="./img/banners/banner_discount.jpg" alt="" className=" rounded-2xl shadow-lg" />
       </div>
-      {/* second third */}
-      <div></div>
+
       <Footer />
     </div>
   );
 };
+export async function getStaticProps() {
+  const response = await fetch("http://localhost:1200/restaurant");
+  const restaurants = await response.json();
+
+  return {
+    props: {
+      restaurants,
+    },
+  };
+}
 
 export default index;

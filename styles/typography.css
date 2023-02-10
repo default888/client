@@ -7,7 +7,7 @@
 }
 
 .h2-caption-regular {
-  @apply font-normal text-[24px] leading-[32px];
+  @apply font-light text-[24px] leading-[32px];
 }
 
 .h3-caption-bold {
@@ -47,27 +47,27 @@
 }
 
 .body-text-large {
-  @apply font-normal text-[20px] leading-[32px];
+  @apply font-light text-[20px] leading-[32px];
 }
 
 .body-text-normal {
-  @apply font-normal text-[16px] leading-[24px];
+  @apply font-light text-[16px] leading-[24px];
 }
 
 .body-text-small {
-  @apply font-normal text-[14px] leading-[24px];
+  @apply font-light text-[14px] leading-[24px];
 }
 
 .caption-1-lh-16 {
-  @apply font-normal text-[12px] leading-[16px];
+  @apply font-light text-[12px] leading-[16px];
 }
 
 .caption-1-lh-18 {
-  @apply font-normal text-[12px] leading-[18px];
+  @apply font-light text-[12px];
 }
 
 .caption-1-lh-20 {
-  @apply font-normal text-[12px] leading-[20px];
+  @apply font-light text-[12px] leading-[20px];
 }
 
 .caption-2-semibold {
@@ -75,7 +75,7 @@
 }
 
 .caption-2-regular {
-  @apply font-normal text-[11px] leading-[16px];
+  @apply font-light text-[11px] leading-[16px];
 }
 
 .caption-2-bold-capitalized {

@@ -1,9 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { PhoneIcon } from "@heroicons/react/24/solid";
-import { CurrencyEuroIcon } from "@heroicons/react/24/solid";
 import Divider from "./Divider";
 
 const Footer = () => {
@@ -13,13 +11,7 @@ const Footer = () => {
       <div className="flex justify-between text-gc-text-dark-gray flex-wrap">
         {/* GoodCity */}
         <div className="  p-4 flex flex-col  w-[25%]">
-          <Image
-            src="./img/logo/goodcity_3_invert.svg"
-            width={230}
-            height={1}
-            alt="logo"
-            className=" mb-6"
-          />
+          <img src="/img/logo/goodcity_3_invert.svg" alt="logo" className=" mb-6 w-[230px]" />
           <div className=" ">
             Сеть кафе и ресторанов GoodCity предоставляет усовершенствованную услугу "служба
             доставки еды" в г. Донецк и Макеевке
@@ -182,19 +174,25 @@ const Footer = () => {
               href="https://vk.com/"
               target="_blank"
               className=" w-10 h-10 flex items-center justify-center ">
-              <CurrencyEuroIcon />
+              <span className="rounded-full hover:bg-gc-primary transition-colors">
+                <img src="/icons/vkIcon.svg" alt="vk" className=" h-8" />
+              </span>
             </Link>
             <Link
               href="https://facebook.com/"
               target="_blank"
               className=" w-10 h-10 flex items-center justify-center ">
-              <CurrencyEuroIcon />
+              <span className="rounded-full hover:bg-gc-primary transition-colors">
+                <img src="/icons/facebookIcon.svg" alt="vk" className=" h-8" />
+              </span>
             </Link>
             <Link
               href="https://instagram.com/"
               target="_blank"
               className=" w-10 h-10 flex items-center justify-center ">
-              <CurrencyEuroIcon />
+              <span className="rounded-full hover:bg-gc-primary transition-colors">
+                <img src="/icons/instagramIcon.svg" alt="vk" className=" h-8" />
+              </span>
             </Link>
           </div>
         </div>
