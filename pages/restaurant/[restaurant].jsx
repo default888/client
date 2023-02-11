@@ -16,8 +16,8 @@ import ProductCardFavorites from "@/components/ProductCardFavorites";
 
 const Resataurant = ({ restaurant }) => {
   const [payment, setPayment] = useState("Средний чек - 1.000 руб.");
-  const [showMenu, setshowMenu] = useState(false);
-  const showMenuToggle = () => setshowMenu(!showMenu);
+  const [showMenu, setshowMenu] = useState(-1);
+  const showMenuToggle = (id) => setshowMenu(id);
 
   const setPaymentText = () => {
     restaurant.name === "cake" && setPayment("От 3.000 руб");
@@ -59,25 +59,30 @@ const Resataurant = ({ restaurant }) => {
                       <div
                         key={item.id}
                         onClick={() => setFilterCategory(item.id)}
-                        className="body-text-normal btn-list">
-                        {item.items.length > 0 && <RestaurantMenuItem menuItem={item.title} />}
+                        className="body-text-normal btn-list"
+                      >
+                        {item.items.length > 0 && (
+                          <RestaurantMenuItem menuItem={item.title} />
+                        )}
                       </div>
                     ) : (
                       <div key={item.id}>
                         <div
                           key={item.id}
-                          onClick={showMenuToggle}
-                          className="body-text-normal flex gap-2 btn-list">
+                          onClick={() => showMenuToggle(item.id)}
+                          className="body-text-normal flex gap-2 btn-list"
+                        >
                           <RestaurantMenuItem menuItem={item.title} />
                           <ChevronUpIcon className="h-5 text-gc-primary mt-[2px] btn-arrow" />
                           <ChevronDownIcon className="h-5 text-gc-primary mt-[2px] btn-arrow hidden" />
                         </div>
-                        {showMenu &&
+                        {showMenu === item.id &&
                           item.subMenu.map((item) => (
                             <div
                               key={item.id}
                               onClick={() => setFilterCategory(item.id)}
-                              className="pl-4 body-text-small btn-list">
+                              className="pl-4 body-text-small btn-list"
+                            >
                               <RestaurantMenuItem menuItem={item.title} />
                             </div>
                           ))}
@@ -102,11 +107,22 @@ const Resataurant = ({ restaurant }) => {
               </div>
             </div>
             <div className=" flex justify-between  items-center w-full mt-5">
-              <h1 className="h1-caption-bold text-gc-text-dark-blue">{restaurant.displayName}</h1>
-              {(restaurant.menu.length > 0 || restaurant.name === "suncity-makeyevka") && (
+              <h1 className="h1-caption-bold text-gc-text-dark-blue">
+                {restaurant.displayName}
+              </h1>
+              {(restaurant.menu.length > 0 ||
+                restaurant.name === "suncity-makeyevka") && (
                 <div className="flex gap-3">
-                  <Button text="О доставке" color="bg-[#503e9d]" textcolor="text-gc-primary" />
-                  <Button text="Акции" color="bg-[#fd7222]" textcolor="text-gc-secondary" />
+                  <Button
+                    text="О доставке"
+                    color="bg-[#503e9d]"
+                    textcolor="text-gc-primary"
+                  />
+                  <Button
+                    text="Акции"
+                    color="bg-[#fd7222]"
+                    textcolor="text-gc-secondary"
+                  />
                   <div className="flex justify-center items-center px-4 py-[6px] rounded-[6px] bg-[#a3a3a4] bg-opacity-20 text-sm text-gc-text-dark-blue">
                     Работаем с 9:00
                   </div>
@@ -116,11 +132,14 @@ const Resataurant = ({ restaurant }) => {
             <div className="py-6">
               <RestaurantDescription displayName={restaurant.displayName} />
             </div>
-            {(restaurant.menu.length > 0 || restaurant.name === "suncity-makeyevka") && (
+            {(restaurant.menu.length > 0 ||
+              restaurant.name === "suncity-makeyevka") && (
               <div className="flex gap-6 items-center">
                 <div className="flex gap-2 justify-start items-center">
                   <StarSolid className="h-5 text-yellow-400 " />
-                  <div className="h4-caption-bold text-gc-text-dark-blue mt-[2px]">4,6</div>
+                  <div className="h4-caption-bold text-gc-text-dark-blue mt-[2px]">
+                    4,6
+                  </div>
                   <div className="  mt-[2px]">(1,724)</div>
                 </div>
                 <div className=" flex gap-2 items-center justify-center">
@@ -133,7 +152,8 @@ const Resataurant = ({ restaurant }) => {
 
             {/*########################### ----- FILTRATION ----- ########################### */}
             <div className="flex gap-11 mt-4 ">
-              {(restaurant.menu.length > 0 || restaurant.name === "suncity-makeyevka") &&
+              {(restaurant.menu.length > 0 ||
+                restaurant.name === "suncity-makeyevka") &&
                 (filterCategory == 0 ? (
                   <div className="flex flex-1 justify-center flex-wrap gap-10 rounded-2xl">
                     {restaurant.menu.map((item) =>
@@ -217,7 +237,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const response = await fetch(`http://localhost:1200/restaurant/${params.restaurant}`);
+  const response = await fetch(
+    `http://localhost:1200/restaurant/${
+      params.restaurant === "suncity-makeyevka" ? "suncity" : params.restaurant
+    }`
+  );
   const restaurant = await response.json();
 
   return {
